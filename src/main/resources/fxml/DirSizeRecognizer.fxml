@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<SplitPane dividerPositions="0.3" maxHeight="-Infinity"
+	maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
+	prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8"
+	xmlns:fx="http://javafx.com/fxml/1" fx:controller="dirsizerecognizer.Controller">
+	<items> 
+		<AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0"
+			prefWidth="100.0">
+			<children>
+				<Button text="Start" fx:id="start" layoutX="125.0" layoutY="359.0"
+					mnemonicParsing="false" onAction="#startToRecognize" />
+				<TextField id="Directory" fx:id="directory" layoutX="9.0"
+					layoutY="34.0" prefHeight="25.0" prefWidth="124.0"
+					AnchorPane.leftAnchor="9.0" AnchorPane.rightAnchor="43.0" />
+				<Label layoutX="9.0" layoutY="14.0" text="Directory:" />
+				<Button onAction="#selectDirectory" layoutX="133.0" layoutY="34.0"
+					mnemonicParsing="false" prefHeight="25.0" prefWidth="38.0" text="&gt;&gt;"
+					AnchorPane.rightAnchor="5.0" />
+				<TextField id="Quantity subdirectories" fx:id="qtySubdir"
+					layoutX="9.0" layoutY="83.0" prefHeight="25.0" prefWidth="41.0" />
+				<Label layoutX="9.0" layoutY="66.0" text="Quantity subdirectories:" />
+				<Separator layoutY="198.0" prefHeight="3.0" prefWidth="176.0"
+					AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
+				<Separator layoutY="350.0" prefHeight="3.0" prefWidth="600.0"
+					AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="-424.0" />
+				<VBox layoutX="13.0" layoutY="199.0" prefHeight="75.0"
+					prefWidth="124.0" AnchorPane.bottomAnchor="124.0"
+					AnchorPane.leftAnchor="13.0" AnchorPane.rightAnchor="39.0"
+					AnchorPane.topAnchor="199.0">
+					<children>
+						<Label text="Sorted by:" />
+						<RadioButton fx:id="sizeRadioButton" mnemonicParsing="false"
+							text="Size" onAction="#printSortedDirs">
+							<toggleGroup>
+								<ToggleGroup fx:id="ToggleGroup1" />
+							</toggleGroup>
+						</RadioButton>
+						<RadioButton fx:id="pathRadioButton" mnemonicParsing="false"
+							text="Path" toggleGroup="$ToggleGroup1" onAction="#printSortedDirs" />
+						<RadioButton fx:id="dirStrucRadioButton"
+							onAction="#printSortedDirs" mnemonicParsing="false" text="Dir structure"
+							toggleGroup="$ToggleGroup1" />
+					</children>
+				</VBox>
+				<Label layoutX="9.0" layoutY="115.0"
+					text="Min directory size (bytes):" />
+				<TextField id="Min directory size" fx:id="minDirSize"
+					layoutX="9.0" layoutY="132.0" prefHeight="25.0" prefWidth="110.0" />
+				<Label id="Readable Size" fx:id="readableSize" layoutX="119.0"
+					layoutY="136.0" prefHeight="17.0" prefWidth="54.0" />
+				<Button id="Clear" layoutX="67.0" layoutY="359.0"
+					mnemonicParsing="false" onAction="#clear" text="Clear" />
+				<Button text="Stop" layoutX="14.0" layoutY="359.0"
+					mnemonicParsing="false" onAction="#stop" />
+			</children>
+		</AnchorPane>
+		<AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0"
+			prefWidth="100.0">
+			<children>
+				<TextArea id="Main textarea" fx:id="mainTextArea"
+					prefHeight="350.0" prefWidth="416.0" AnchorPane.bottomAnchor="48.0"
+					AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0"
+					AnchorPane.topAnchor="0.0" />
+				<TextArea id="Message textarea" fx:id="messageTextArea"
+					layoutY="351.0" prefHeight="47.0" prefWidth="416.0"
+					AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0"
+					AnchorPane.rightAnchor="0.0" />
+			</children>
+		</AnchorPane>
+	</items>
+</SplitPane>
